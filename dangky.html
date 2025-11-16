@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng kí CLB - Trường THPT Chuyên Chu Văn An</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .registration-form-section {
+            background: linear-gradient(135deg, #FFFACD 0%, #FFFFE0 50%, #FFFFFF 100%);
+            padding: 50px 80px;
+            margin: 0;
+            animation: fadeIn 0.8s ease-out;
+            min-height: 100vh;
+        }
+
+        .registration-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            animation: slideInUp 0.8s ease-out;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 24px rgba(216, 67, 21, 0.15);
+        }
+
+        .registration-form-container h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #D84315;
+            text-align: center;
+            margin: 0 0 30px 0;
+            line-height: 1.6;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .registration-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .form-group label {
+            font-size: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group select {
+            padding: 12px 15px;
+            font-size: 14px;
+            border: 2px solid #DAA520;
+            border-radius: 8px;
+            font-family: "Times New Roman", serif;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="date"]:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF8C00;
+            background-color: white;
+            box-shadow: 0 0 12px rgba(255, 140, 0, 0.4);
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .radio-label,
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: normal;
+            transition: transform 0.2s ease, color 0.2s ease;
+            color: #333;
+        }
+
+        .radio-label:hover,
+        .checkbox-label:hover {
+            transform: translateX(5px);
+            color: #D84315;
+        }
+
+        .radio-label input[type="radio"],
+        .checkbox-label input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: #FF8C00;
+        }
+
+        .button-group {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .btn-secondary {
+            padding: 10px 25px;
+            font-size: 14px;
+            background-color: #FFD580;
+            border: 2px solid #DAA520;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: "Times New Roman", serif;
+            color: #333;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background-color: #FF8C00;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(216, 67, 21, 0.3);
+        }
+
+        .file-info {
+            font-size: 13px;
+            color: #666;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-primary {
+            padding: 12px 40px;
+            font-size: 16px;
+            background-color: #FF8C00;
+            border: 2px solid #FF8C00;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: "Times New Roman", serif;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #D84315;
+            border-color: #D84315;
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(216, 67, 21, 0.4);
+        }
+
+        .btn-cancel {
+            padding: 12px 40px;
+            font-size: 16px;
+            background-color: #d3d3d3;
+            border: 2px solid #999;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: "Times New Roman", serif;
+            color: #333;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-cancel:hover {
+            background-color: #999;
+            color: white;
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="banner">
+        <img src="banner.jpg" alt="Ảnh trường">
+        <h1>Đăng kí CLB ngoại khóa</h1>
+    </header>
+
+    <section class="registration-form-section">
+        <div class="registration-form-container">
+            <div class="success-message" id="successMessage">
+                ✓ Đăng kí thành công! Cảm ơn bạn đã tham gia CLB.<br>
+                <small>Quay về trang chủ trong 3 giây...</small>
+            </div>
+
+            <h2>ĐĂNG KÍ THÀNH VIÊN<br>CLB NGOÀI KHÓA TRƯỜNG THPT CHUYÊN CHU VĂN AN</h2>
+            
+            <form class="registration-form" id="registrationForm">
+                <div class="form-group">
+                    <label for="fullname">Họ tên:</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Nhập họ tên đầy đủ" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Ngày sinh:</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Địa chỉ:</label>
+                    <textarea id="address" name="address" placeholder="Nhập địa chỉ của bạn" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Giới tính:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Nam" required> Nam
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="gender" value="Nữ" required> Nữ
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Sở thích:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Thể thao"> Thể thao
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Trò chơi"> Trò chơi
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Du lịch"> Du lịch
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Âm nhạc"> Âm nhạc
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="interests" value="Nấu ăn"> Nấu ăn
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="club-select">Chọn CLB:</label>
+                    <select id="club-select" name="club" required>
+                        <option value="">-- Chọn CLB --</option>
+                        <option value="Bóng đá">Bóng đá</option>
+                        <option value="Bóng chuyền">Bóng chuyền</option>
+                        <option value="Bóng rổ">Bóng rổ</option>
+                        <option value="Cầu lông">Cầu lông</option>
+                        <option value="Võ thuật">Võ thuật</option>
+                        <option value="Bơi lội">Bơi lội</option>
+                        <option value="Mĩ thuật">Mĩ thuật</option>
+                        <option value="Nhạc sánh">Nhạc sánh</option>
+                        <option value="Âm nhạc">Âm nhạc</option>
+                        <option value="Khiêu vũ">Khiêu vũ</option>
+                    </select>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Đăng kí</button>
+                    <a href="index.html" class="btn-cancel">Quay lại</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Hiển thị thông báo thành công
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Vô hiệu hóa form
+            const form = this;
+            const inputs = form.querySelectorAll('input, select, textarea, button');
+            inputs.forEach(input => {
+                input.disabled = true;
+            });
+            
+            // Quay về trang chủ sau 3 giây
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 3000);
+        });
+    </script>
+
+</body>
+</html>
